@@ -3,21 +3,34 @@ import { styled } from "styled-components";
 export const Nav = styled.nav`
   display: flex;
   list-style:none;
-  justify-content: space-between;
   margin-top:1.25vw;
+  position:relative;
+  font-size:16px;
+  font-weight:600;
   
 `;
 
-export const MainNav = styled.div`
+export const NavLogo = styled.div`
+  width: 100px;
+  margin-left:-150px;
+  `
+
+  export const MainNav = styled.div<{ isRootPath: boolean }>`
+  position:absolute;
+  left:0;
   display: flex;
-  gap: 20px;
+  width: 300px;
   > * {
-    min-width: 75px;
+    min-width:100px;
   }
 `;
 
 export const Logo = styled.img`
-height:20px;
+height:24px;
 transition: transform 0.3s ease;
 width:100px;
+`
+export const Clock = styled.div`
+  position:absolute;
+  right:0;
 `
