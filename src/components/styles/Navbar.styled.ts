@@ -3,10 +3,12 @@ import { styled } from "styled-components";
 export const Nav = styled.nav`
   display: flex;
   list-style:none;
-  margin-top:1.25vw;
+  margin-top:20px;
   position:relative;
   font-size:16px;
   font-weight:600;
+  height: 30px;
+  z-index:100;
   
 `;
 

@@ -9,7 +9,6 @@ export const Navbar = () => {
     const location = useLocation();
 
     return (
-        <div>
             <Nav>
                 <AnimatePresence>
                     <motion.div
@@ -38,6 +37,5 @@ export const Navbar = () => {
                     <LocalTime />
                 </Clock>
             </Nav>
-        </div>
     )
 }
