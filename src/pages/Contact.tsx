@@ -1,12 +1,13 @@
-import { styled } from "styled-components"
+import { styled } from "styled-components";
+import { transition } from "../components/Transitions";
 
-export const Contact = () => {
-  return (
-    <Posiotion>Contact</Posiotion>
-  )
-}
+const Contact = () => {
+  return <Posiotion>Contact</Posiotion>;
+};
 
 const Posiotion = styled.div`
-width:50%;
-border: 1px solid white;
-`
+  width: 50%;
+  border: 1px solid white;
+`;
+
+export const ContactPage = transition(Contact);

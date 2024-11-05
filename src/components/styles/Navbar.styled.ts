@@ -9,7 +9,8 @@ export const Nav = styled.nav`
   font-weight:400;
   height: 30px;
   z-index:100;
-  
+  margin-left:10px;
+  margin-right:10px;
 `;
 
 export const NavLogo = styled.div`
