@@ -29,12 +29,26 @@ const StyledHeader = styled.h1`
 export const StyledContent = styled.div`
   display: grid;
   flex:1;
-  border: 1px solid green;
   grid-template-columns: repeat(2, 1fr);
 `;  
 
 export const StyledContentLeft = styled.div`
-  background-color: orange;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+& div:first-child {
+  color:#949494;
+}
+
+& div:last-child {
+  color:#fff;
+  width:70%;
+  text-align:justify;
+}
+
+  & p {
+     margin:0;
+  }
 `;
 
 export const StyledContentRight = styled.div`
@@ -44,10 +58,18 @@ export const StyledContentRight = styled.div`
   left: 50vw;
   margin-right:10px;
   height: 100vh;
-`;
-
-export const CustomSide = styled.div`
-  background-color: blue;
+  color:#949494;
+  & h3 {
+    font-size:2rem;
+    font-weight:1000;
+    margin:0;
+    margin-top:1rem;
+    color:#fff;
+  }
+    & p {
+      margin:0;
+      font-size:0.8rem;
+    }
 `;
 
 export const EmptySpace = styled.div`
@@ -58,9 +80,9 @@ export const RightContent = () => {
   return (
     <StyledContentRight>
       <EmptySpace />
-      <CustomSide>
-        <img src={Image_1} alt="Manikin" style={{ width: '100%' }} />
-      </CustomSide>
+      <img src={Image_1} alt="Manikin" style={{ width: '100%' }} />
+      <h3>PROXIMO EVENTO</h3>
+      <p>21 DE DICIEMBRE DE 2024</p>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
@@ -116,7 +138,20 @@ export const MainContent = () => {
 export const LeftContent = () => {
   return (
     <StyledContentLeft>
-      Left
+      <div>
+
+      <p>
+     /ˈtechnɔːn/cul·ture
+      </p>
+      <p>
+        VIVE LA LOCURA
+      </p>
+      </div>
+
+      <div>
+        <p>Una Empresa Independiente de Organización de Eventos
+        Basada en Terrassa, Barcelona. Fusionamos música, tecnología y experiencias inmersivas para crear eventos únicos de música tecno. Especializados en llevar la escena tecno a otro nivel.</p>
+      </div>
     </StyledContentLeft>
   )
 } 

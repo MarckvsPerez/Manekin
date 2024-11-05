@@ -5,8 +5,8 @@ export const Nav = styled.nav`
   list-style:none;
   margin-top:20px;
   position:relative;
-  font-size:16px;
-  font-weight:600;
+  font-size:20px;
+  font-weight:400;
   height: 30px;
   z-index:100;
   
