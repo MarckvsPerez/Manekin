@@ -1,8 +1,8 @@
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
 import LocalTime from "./LocalTime";
-import { Clock, Logo, MainNav, Nav, NavLogo } from "./styles/Navbar.styled";
+import { Clock, Logo, MainNav, Nav, NavLink } from "./styles/Navbar.styled";
 import LogoPng from "../assets/Logo.png";
 
 export const Navbar = () => {
@@ -13,33 +13,47 @@ export const Navbar = () => {
       <AnimatePresence>
         <motion.div
           initial={{ x: 0 }}
-          animate={{ x: location.pathname === "/" ? 0 : "150px" }}
+          animate={{ x: location.pathname === "/" ? "-250px" : 0 }}
           transition={{ duration: 1, ease: [1, 0.5, 0.2, 1] }}
         >
-          <NavLogo>
-            <Link to="/">
+          <div>
+            <NavLink to="/" isActive={location.pathname === "/"}>
               <Logo src={LogoPng} alt="Manikin" />
-            </Link>
-          </NavLogo>
+            </NavLink>
+          </div>
         </motion.div>
-        <motion.div
-          animate={{
-            x: location.pathname === "/" ? "0" : "calc(50vw - 150px)",
-          }}
-          transition={{ duration: 1, ease: [1, 0.5, 0.2, 1] }}
-        >
-          <MainNav isRootPath={location.pathname === "/"}>
+        <MainNav isRootPath={location.pathname === "/"}>
+          <motion.div
+            initial={{ x: 0 }}
+            animate={{
+              x:
+                location.pathname === "/"
+                  ? "calc(-50vw + calc(50% + 10px))"
+                  : 0,
+            }}
+            transition={{ duration: 1, ease: [1, 0.5, 0.2, 1] }}
+            style={{ display: "flex", gap: "2vw", textWrap: "nowrap" }}
+          >
             <div>
-              <Link to="/contact">Contacto</Link>
+              <NavLink
+                to="/contact"
+                isActive={location.pathname === "/contact"}
+              >
+                Contacto
+              </NavLink>
             </div>
             <div>
-              <Link to="/about">Cartel</Link>
+              <NavLink to="/about" isActive={location.pathname === "/about"}>
+                Cartel
+              </NavLink>
             </div>
             <div>
-              <Link to="/about">Sobre Nosotros</Link>
+              <NavLink to="/about" isActive={location.pathname === "/about"}>
+                Sobre Nosotros
+              </NavLink>
             </div>
-          </MainNav>
-        </motion.div>
+          </motion.div>
+        </MainNav>
       </AnimatePresence>
 
       <Clock>
