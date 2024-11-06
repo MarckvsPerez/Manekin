@@ -11,6 +11,28 @@ import { FaSmile } from "react-icons/fa";
 import { Carrousel } from "../components/Carrousel";
 import { SoundWave } from "../components/SoundWave";
 import { useState } from "react";
+import { motion } from "framer-motion";
+
+const animateText = (text: string) =>
+  text.split("").map((char, index) => (
+    <motion.span
+      key={index}
+      initial={{ scaleY: 0 }}
+      animate={{ scaleY: 1 }}
+      transition={{
+        duration: 0.5,
+        delay: index * 0.05,
+        ease: [0.22, 1, 0.36, 1],
+      }}
+      style={{
+        display: "inline-block",
+        whiteSpace: "pre",
+        transformOrigin: "bottom",
+      }}
+    >
+      {char}
+    </motion.span>
+  ));
 
 const Contact = () => {
   const [isPaused, setIsPaused] = useState(true);
@@ -38,45 +60,66 @@ const Contact = () => {
       <Carrousel />
       <form onSubmit={formik.handleSubmit}>
         <h1>
-          Hola <FaSmile />
+          {animateText("Hola")} <FaSmile />
         </h1>
         <StyledMotionDiv>
-          <h1>Mi nombre es</h1>
-          <Input
-            id="nombre"
-            name="nombre"
-            type="text"
-            placeholder="Nombre"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.nombre}
-          />
+          <h1>{animateText("Mi nombre es")}</h1>
+          <motion.div
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            transition={{ duration: 1, ease: "circOut", delay: 0 }}
+            style={{ width: "100%" }}
+          >
+            <Input
+              id="nombre"
+              name="nombre"
+              type="text"
+              placeholder="Nombre"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.nombre}
+            />
+          </motion.div>
         </StyledMotionDiv>
 
         <StyledMotionDiv>
-          <h1>Este es mi correo</h1>
-          <Input
-            id="email"
-            name="email"
-            type="email"
-            placeholder="Email"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.email}
-          />
+          <h1>{animateText("Este es mi correo")}</h1>
+          <motion.div
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            transition={{ duration: 1, ease: "circOut", delay: 0.2 }}
+            style={{ width: "100%" }}
+          >
+            <Input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="Email"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.email}
+            />
+          </motion.div>
         </StyledMotionDiv>
 
         <StyledMotionDiv>
-          <h1>Y el mensaje es</h1>
-          <Input
-            id="mensaje"
-            name="mensaje"
-            type="text"
-            placeholder="Mensaje"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.mensaje}
-          />
+          <h1>{animateText("Y el mensaje es")}</h1>
+          <motion.div
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            transition={{ duration: 1, ease: "circOut", delay: 0.4 }}
+            style={{ width: "100%" }}
+          >
+            <Input
+              id="mensaje"
+              name="mensaje"
+              type="text"
+              placeholder="Mensaje"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.mensaje}
+            />
+          </motion.div>
         </StyledMotionDiv>
 
         <Button

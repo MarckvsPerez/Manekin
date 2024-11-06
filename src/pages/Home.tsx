@@ -114,7 +114,7 @@ export const RightContent = () => {
                   position: "absolute",
                   top: "50%",
                   left: "50%",
-                  transform: "translate(-50%, -50%) scale(1.78)", // Ajusta el zoom para que llene el cuadrado
+                  transform: "translate(-50%, -50%) scale(1.78)",
                   cursor: "pointer",
                 }}
                 onMouseEnter={() => setHoveredUpcoming(true)}
