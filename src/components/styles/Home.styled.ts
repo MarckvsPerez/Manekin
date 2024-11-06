@@ -10,11 +10,17 @@ export const StyledHeader = styled.h1`
   width: 100%;
   font-weight: 1000;
   text-align: center;
-  font-size: 12vw;
+  font-size: clamp(2rem, 12vw, 14vw);
   height: 13vw;
   margin: 0;
   white-space: nowrap;
+  display: flex;
 `;
+
+export const StyledHeaderContainer = styled.div`
+  width: 50%;
+`;
+
 export const StyledContent = styled.div`
   display: grid;
   flex: 1;

@@ -1,4 +1,16 @@
-import { djs, merch, pastEvents, upcomingEvents } from "../assets/image";
+import {
+  djs,
+  event1,
+  merch,
+  pastEvents,
+  upcomingEvents,
+} from "../assets/image";
+import Video from "../assets/videos/21-12-2024.mp4";
+import VideoEvents from "../assets/videos/events.mp4";
+
+import { motion } from "framer-motion";
+import { useRef, useState } from "react";
+import { useInView } from "framer-motion";
 
 import { transition } from "../components/Transitions";
 import {
@@ -10,7 +22,9 @@ import {
   StyledContentLeft,
   StyledContentRightContainer,
   Divider,
+  StyledHeaderContainer,
 } from "../components/styles/Home.styled";
+import ReactPlayer from "react-player";
 
 function Home() {
   return (
@@ -23,36 +37,243 @@ function Home() {
 }
 
 export const RightContent = () => {
+  const refUpcoming = useRef(null);
+  const refPast = useRef(null);
+  const refDjs = useRef(null);
+  const refMerch = useRef(null);
+
+  const [hoveredUpcoming, setHoveredUpcoming] = useState(false);
+  const [hoveredPast, setHoveredPast] = useState(false);
+  const [hoveredDjs, setHoveredDjs] = useState(false);
+  const [hoveredMerch, setHoveredMerch] = useState(false);
+
+  const isInViewUpcoming = useInView(refUpcoming, { once: true });
+  const isInViewPast = useInView(refPast, { once: true });
+  const isInViewDjs = useInView(refDjs, { once: true });
+  const isInViewMerch = useInView(refMerch, { once: true });
+
+  const animateText = (text: string, isInView: boolean) =>
+    text.split("").map((char, index) => (
+      <motion.span
+        key={index}
+        initial={{ scaleY: 0 }}
+        animate={isInView ? { scaleY: 1 } : {}}
+        transition={{
+          duration: 0.5,
+          delay: index * 0.05,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+        style={{
+          display: "inline-block",
+          whiteSpace: "pre",
+          transformOrigin: "bottom",
+        }}
+      >
+        {char}
+      </motion.span>
+    ));
+
   return (
     <StyledContentRight>
       <EmptySpace />
       <StyledContentRightContainer>
-        <img src={upcomingEvents} alt="Manikin" style={{ width: "100%" }} />
-        <h3>PROXIMO EVENTO</h3>
+        <div style={{ position: "relative" }}>
+          <img
+            src={upcomingEvents}
+            alt="Manikin"
+            style={{ width: "100%", cursor: "pointer" }}
+            onMouseEnter={() => setHoveredUpcoming(true)}
+            onMouseLeave={() => setHoveredUpcoming(false)}
+          />
+          {hoveredUpcoming && (
+            <motion.div
+              style={{
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+                width: "60%",
+                height: "60%",
+                overflow: "hidden",
+              }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+            >
+              <ReactPlayer
+                url={Video}
+                playing
+                controls={false}
+                width="100%"
+                height="100%"
+                loop={true}
+                style={{
+                  position: "absolute",
+                  top: "50%",
+                  left: "50%",
+                  transform: "translate(-50%, -50%) scale(1.78)", // Ajusta el zoom para que llene el cuadrado
+                  cursor: "pointer",
+                }}
+                onMouseEnter={() => setHoveredUpcoming(true)}
+                onMouseLeave={() => setHoveredUpcoming(false)}
+              />
+            </motion.div>
+          )}
+        </div>
+
+        <h3 ref={refUpcoming}>
+          {animateText("PROXIMO EVENTO", isInViewUpcoming)}
+        </h3>
         <p>21 DE DICIEMBRE DE 2024</p>
         <Divider />
 
-        <img src={pastEvents} alt="Manikin" style={{ width: "100%" }} />
-        <h3>EVENTOS PASADOS</h3>
+        <div style={{ position: "relative" }}>
+          <img
+            src={pastEvents}
+            alt="Manikin"
+            style={{ width: "100%", cursor: "pointer" }}
+            onMouseEnter={() => setHoveredPast(true)}
+            onMouseLeave={() => setHoveredPast(false)}
+          />
+          {hoveredPast && (
+            <motion.div
+              style={{
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+                width: "60%",
+                height: "60%",
+                overflow: "hidden",
+              }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+            >
+              <ReactPlayer
+                url={VideoEvents}
+                playing
+                controls={false}
+                width="100%"
+                height="100%"
+                loop={true}
+                style={{
+                  position: "absolute",
+                  top: "50%",
+                  left: "50%",
+                  transform: "translate(-50%, -50%) scale(1.78)",
+                  cursor: "pointer",
+                }}
+                onMouseEnter={() => setHoveredPast(true)}
+                onMouseLeave={() => setHoveredPast(false)}
+              />
+            </motion.div>
+          )}
+        </div>
+        <h3 ref={refPast}>{animateText("EVENTOS PASADOS", isInViewPast)}</h3>
         <p>21 DE DICIEMBRE DE 2024</p>
         <Divider />
 
-        <img src={djs} alt="Manikin" style={{ width: "100%" }} />
-        <h3>DJS RESIDENTES</h3>
-        <p>21 DE DICIEMBRE DE 2024</p>
-        <Divider />
+        <div style={{ position: "relative" }}>
+          <img
+            src={djs}
+            alt="DJS RESIDENTES"
+            style={{ width: "100%", cursor: "pointer" }}
+            onMouseEnter={() => setHoveredDjs(true)}
+            onMouseLeave={() => setHoveredDjs(false)}
+          />
+          {hoveredDjs && (
+            <motion.img
+              src={event1}
+              alt="Manikin"
+              style={{
+                width: "50%",
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+                aspectRatio: "1/1",
+                objectFit: "cover",
+                cursor: "pointer",
+              }}
+              onMouseEnter={() => setHoveredDjs(true)}
+              onMouseLeave={() => setHoveredDjs(false)}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+            />
+          )}
+          <h3 ref={refDjs}>{animateText("DJS RESIDENTES", isInViewDjs)}</h3>
+          <p>21 DE DICIEMBRE DE 2024</p>
+          <Divider />
+        </div>
 
-        <img src={merch} alt="Manikin" style={{ width: "100%" }} />
-        <h3>MERCHANDISING</h3>
-        <p>21 DE DICIEMBRE DE 2024</p>
-        <Divider />
+        <div style={{ position: "relative" }}>
+          <img
+            src={merch}
+            alt="MERCHANDISING"
+            style={{ width: "100%", cursor: "pointer" }}
+            onMouseEnter={() => setHoveredMerch(true)}
+            onMouseLeave={() => setHoveredMerch(false)}
+          />
+          {hoveredMerch && (
+            <motion.img
+              src={merch}
+              alt="Manikin"
+              style={{
+                width: "50%",
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+                aspectRatio: "1/1",
+                objectFit: "cover",
+                cursor: "pointer",
+              }}
+              onMouseEnter={() => setHoveredMerch(true)}
+              onMouseLeave={() => setHoveredMerch(false)}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+            />
+          )}
+          <h3 ref={refMerch}>{animateText("MERCHANDISING", isInViewMerch)}</h3>
+          <p>21 DE DICIEMBRE DE 2024</p>
+          <Divider />
+        </div>
       </StyledContentRightContainer>
     </StyledContentRight>
   );
 };
 
 export const MainHeader = () => {
-  return <StyledHeader>MANIKIN EVENTS</StyledHeader>;
+  const text = "MANIKIN EVENTS";
+
+  return (
+    <StyledHeader>
+      <StyledHeaderContainer>
+        {text.split("").map((char, index) => (
+          <motion.span
+            key={index}
+            initial={{ scaleY: 0 }}
+            animate={{ scaleY: 1 }}
+            transition={{
+              duration: 1,
+              delay: index * 0.05,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            style={{
+              display: "inline-block",
+              whiteSpace: "pre",
+              transformOrigin: "bottom",
+            }}
+          >
+            {char}
+          </motion.span>
+        ))}
+      </StyledHeaderContainer>
+    </StyledHeader>
+  );
 };
 
 export const MainContent = () => {
