@@ -10,7 +10,15 @@ export default function AppRouter(): JSX.Element {
   const location = useLocation();
   return (
     <>
-      <div style={{ position: "fixed", width: "100vw", zIndex: 2 }}>
+      <div
+        style={{
+          position: "fixed",
+          width: "100vw",
+          zIndex: 2,
+          color: "white",
+          mixBlendMode: "difference",
+        }}
+      >
         <Navbar />
       </div>
       <MainLayout>
