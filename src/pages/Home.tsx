@@ -52,6 +52,20 @@ export const RightContent = () => {
   const isInViewDjs = useInView(refDjs, { once: true });
   const isInViewMerch = useInView(refMerch, { once: true });
 
+  const handleMouseEnter = (
+    setHovered: React.Dispatch<React.SetStateAction<boolean>>
+  ) => {
+    setHovered(true);
+    document.querySelector(".custom-cursor")?.classList.add("hover");
+  };
+
+  const handleMouseLeave = (
+    setHovered: React.Dispatch<React.SetStateAction<boolean>>
+  ) => {
+    setHovered(false);
+    document.querySelector(".custom-cursor")?.classList.remove("hover");
+  };
+
   const animateText = (text: string, isInView: boolean) =>
     text.split("").map((char, index) => (
       <motion.span
@@ -85,8 +99,12 @@ export const RightContent = () => {
               width: "100%",
               cursor: "pointer",
             }}
-            onMouseEnter={() => setHoveredUpcoming(true)}
-            onMouseLeave={() => setHoveredUpcoming(false)}
+            onMouseEnter={() => {
+              handleMouseEnter(setHoveredUpcoming);
+            }}
+            onMouseLeave={() => {
+              handleMouseLeave(setHoveredUpcoming);
+            }}
           />
           {hoveredUpcoming && (
             <motion.div
@@ -117,8 +135,8 @@ export const RightContent = () => {
                   transform: "translate(-50%, -50%) scale(1.78)",
                   cursor: "pointer",
                 }}
-                onMouseEnter={() => setHoveredUpcoming(true)}
-                onMouseLeave={() => setHoveredUpcoming(false)}
+                onMouseEnter={() => handleMouseEnter(setHoveredUpcoming)}
+                onMouseLeave={() => handleMouseLeave(setHoveredUpcoming)}
               />
             </motion.div>
           )}
@@ -135,8 +153,8 @@ export const RightContent = () => {
             src={pastEvents}
             alt="Manikin"
             style={{ width: "100%", cursor: "pointer" }}
-            onMouseEnter={() => setHoveredPast(true)}
-            onMouseLeave={() => setHoveredPast(false)}
+            onMouseEnter={() => handleMouseEnter(setHoveredPast)}
+            onMouseLeave={() => handleMouseLeave(setHoveredPast)}
           />
           {hoveredPast && (
             <motion.div
@@ -167,8 +185,8 @@ export const RightContent = () => {
                   transform: "translate(-50%, -50%) scale(1.78)",
                   cursor: "pointer",
                 }}
-                onMouseEnter={() => setHoveredPast(true)}
-                onMouseLeave={() => setHoveredPast(false)}
+                onMouseEnter={() => handleMouseEnter(setHoveredPast)}
+                onMouseLeave={() => handleMouseLeave(setHoveredPast)}
               />
             </motion.div>
           )}
@@ -182,8 +200,8 @@ export const RightContent = () => {
             src={djs}
             alt="DJS RESIDENTES"
             style={{ width: "100%", cursor: "pointer" }}
-            onMouseEnter={() => setHoveredDjs(true)}
-            onMouseLeave={() => setHoveredDjs(false)}
+            onMouseEnter={() => handleMouseEnter(setHoveredDjs)}
+            onMouseLeave={() => handleMouseLeave(setHoveredDjs)}
           />
           {hoveredDjs && (
             <motion.img
@@ -199,8 +217,8 @@ export const RightContent = () => {
                 objectFit: "cover",
                 cursor: "pointer",
               }}
-              onMouseEnter={() => setHoveredDjs(true)}
-              onMouseLeave={() => setHoveredDjs(false)}
+              onMouseEnter={() => handleMouseEnter(setHoveredDjs)}
+              onMouseLeave={() => handleMouseLeave(setHoveredDjs)}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
@@ -216,8 +234,8 @@ export const RightContent = () => {
             src={merch}
             alt="MERCHANDISING"
             style={{ width: "100%", cursor: "pointer" }}
-            onMouseEnter={() => setHoveredMerch(true)}
-            onMouseLeave={() => setHoveredMerch(false)}
+            onMouseEnter={() => handleMouseEnter(setHoveredMerch)}
+            onMouseLeave={() => handleMouseLeave(setHoveredMerch)}
           />
           {hoveredMerch && (
             <motion.img
@@ -233,8 +251,8 @@ export const RightContent = () => {
                 objectFit: "cover",
                 cursor: "pointer",
               }}
-              onMouseEnter={() => setHoveredMerch(true)}
-              onMouseLeave={() => setHoveredMerch(false)}
+              onMouseEnter={() => handleMouseEnter(setHoveredMerch)}
+              onMouseLeave={() => handleMouseLeave(setHoveredMerch)}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
