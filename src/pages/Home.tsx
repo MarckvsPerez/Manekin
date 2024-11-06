@@ -81,7 +81,10 @@ export const RightContent = () => {
           <img
             src={upcomingEvents}
             alt="Manikin"
-            style={{ width: "100%", cursor: "pointer" }}
+            style={{
+              width: "100%",
+              cursor: "pointer",
+            }}
             onMouseEnter={() => setHoveredUpcoming(true)}
             onMouseLeave={() => setHoveredUpcoming(false)}
           />
