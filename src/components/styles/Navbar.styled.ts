@@ -25,6 +25,7 @@ export const NavLogo = styled.div`
   > * {
     min-width:100px;
   }
+  text-wrap: nowrap;
 `;
 
 export const Logo = styled.img`

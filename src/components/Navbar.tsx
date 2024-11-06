@@ -30,10 +30,13 @@ export const Navbar = () => {
         >
           <MainNav isRootPath={location.pathname === "/"}>
             <div>
-              <Link to="/contact">Contact</Link>
+              <Link to="/contact">Contacto</Link>
             </div>
             <div>
-              <Link to="/about">About Us</Link>
+              <Link to="/about">Cartel</Link>
+            </div>
+            <div>
+              <Link to="/about">Sobre Nosotros</Link>
             </div>
           </MainNav>
         </motion.div>

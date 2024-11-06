@@ -7,14 +7,16 @@ export const Container = styled.div`
 `;
 
 export const StyledHeader = styled.h1`
-  width: 100%;
+  width: 100vw;
   font-weight: 1000;
   text-align: center;
-  font-size: clamp(2rem, 12vw, 14vw);
-  height: 13vw;
+  font-size: clamp(2rem, 12vw, 13vw);
   margin: 0;
   white-space: nowrap;
   display: flex;
+  overflow: hidden;
+  line-height: .8;
+  padding-bottom: 50px;
 `;
 
 export const StyledHeaderContainer = styled.div`
@@ -75,7 +77,7 @@ export const StyledContentRightContainer = styled.div`
 `;
 
 export const EmptySpace = styled.div`
-  height: calc(13vw + 55px);
+  height: calc(12vw + 55px);
   `;
 
 export const Divider = styled.div`
