@@ -4,7 +4,7 @@ import { styled } from "styled-components";
 
 
 export const ContactContainer = styled.div`
-  height: calc(100% - 55px);
+  height: 100%;
   overflow: scroll;
   white-space: nowrap;
   line-height:1.3;
@@ -15,7 +15,6 @@ export const ContactContainer = styled.div`
     font-size: 3vw;
     margin: 0;
   }
-  margin-bottom: 55px;
 `;
 
 export const StyledMotionDiv = styled(motion.div)`
