@@ -10,6 +10,8 @@ export const Nav = styled.nav`
   font-weight: 400;
   margin-left: 10px;
   margin-right: 10px;
+  height: 3vw;
+  overflow: hidden;
 `;
 
 export const MainNav = styled.div<{ isRootPath: boolean }>`

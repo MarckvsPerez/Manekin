@@ -6,9 +6,5 @@ export const MainLayout = ({
 }: {
   children: ReactNode;
 }): JSX.Element => {
-  return (
-    <div style={{ height: "100vh", overflow: "scroll" }}>
-      <FullWidthDiv>{children}</FullWidthDiv>
-    </div>
-  );
+  return <FullWidthDiv>{children}</FullWidthDiv>;
 };

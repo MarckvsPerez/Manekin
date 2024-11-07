@@ -18,6 +18,7 @@ export default function AppRouter(): JSX.Element {
           zIndex: 2,
           color: "white",
           mixBlendMode: "difference",
+          top: 0,
         }}
       >
         <Navbar />
