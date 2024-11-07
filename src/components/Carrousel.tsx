@@ -30,7 +30,7 @@ export function Carrousel() {
           ease: "linear",
           duration: 250,
         }}
-        style={{ display: "inline-block", fontSize: "19vw", margin: 0 }}
+        style={{ display: "inline-block", fontSize: "14vw", margin: 0 }}
       >
         {formattedText}
         {formattedText}
