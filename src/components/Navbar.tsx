@@ -43,8 +43,8 @@ export const Navbar = () => {
               </NavLink>
             </div>
             <div>
-              <NavLink to="/about" isActive={location.pathname === "/about"}>
-                Cartel
+              <NavLink to="/events" isActive={location.pathname === "/events"}>
+                Eventos
               </NavLink>
             </div>
             <div>

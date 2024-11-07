@@ -5,6 +5,7 @@ import { HomePage } from "../pages/Home";
 import { ContactPage } from "../pages/Contact";
 import { AnimatePresence } from "framer-motion";
 import { Navbar } from "../components/Navbar";
+import { EventsPage } from "../pages/Events";
 
 export default function AppRouter(): JSX.Element {
   const location = useLocation();
@@ -26,6 +27,7 @@ export default function AppRouter(): JSX.Element {
           <Routes location={location} key={location.pathname}>
             <Route index path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutUsPage />} />
+            <Route path="/events" element={<EventsPage />} />
             <Route path="/contact" element={<ContactPage />} />
           </Routes>
         </AnimatePresence>

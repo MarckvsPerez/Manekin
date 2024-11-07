@@ -21,7 +21,14 @@ export function Carrousel() {
 
   return (
     <div
-      style={{ position: "relative", overflow: "hidden", whiteSpace: "nowrap" }}
+      style={{
+        position: "relative",
+        overflow: "hidden",
+        whiteSpace: "nowrap",
+        flex: 1,
+        display: "flex",
+        alignItems: "center",
+      }}
     >
       <motion.div
         animate={{ x: ["0%", "-100%"] }}
@@ -30,7 +37,7 @@ export function Carrousel() {
           ease: "linear",
           duration: 250,
         }}
-        style={{ display: "inline-block", fontSize: "14vw", margin: 0 }}
+        style={{ display: "inline-block", fontSize: "19vw", margin: 0 }}
       >
         {formattedText}
         {formattedText}
