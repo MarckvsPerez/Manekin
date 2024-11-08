@@ -6,12 +6,15 @@ import App from "./App.tsx";
 
 import "./index.css";
 import CustomCursor from "./components/CustomCursor.tsx";
+import { PageViewProvider } from "./context/FirstLoad.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
-      <CustomCursor />
-      <App />
+      <PageViewProvider>
+        <CustomCursor />
+        <App />
+      </PageViewProvider>
     </BrowserRouter>
   </StrictMode>
 );
