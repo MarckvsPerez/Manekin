@@ -32,7 +32,7 @@ export const EventDetails = styled.div`
 `;
 
 export const EventImage = styled.img`
-  height: 85%;
+  height: 100%;
   aspect-ratio: 1/1;
   object-fit: cover;
 `;

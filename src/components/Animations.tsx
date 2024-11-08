@@ -10,9 +10,10 @@ export default function Animations({ delay }: { delay: number }) {
         width: "100%",
         height: "100%",
         backgroundColor: "#101010",
+        zIndex: 1,
       }}
       initial={{ y: 0 }}
-      animate={{ y: "-100%" }}
+      animate={{ y: "-110%" }}
       transition={{ duration: 1, ease: "circOut", delay: delay }}
     />
   );

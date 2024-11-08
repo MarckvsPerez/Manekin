@@ -1,7 +1,3 @@
-export { default as djs } from "./djs.jpeg";
-export { default as merch } from "./merch.jpeg";
-export { default as pastEvents } from "./eventos.jpeg";
-export { default as upcomingEvents } from "./proximo_evento.jpeg";
 export { default as event1 } from "./Event_01.png";
 export { default as event2 } from "./Event_02.png";
 export { default as event3 } from "./Event_03.png";
@@ -10,4 +6,6 @@ export { default as event5 } from "./Event_05.png";
 export { default as event6 } from "./Event_06.png";
 export { default as event7 } from "./Event_07.png";
 export { default as event8 } from "./Event_08.png";
-export { default as castle } from "./castle.jpg";
+export { default as event9 } from "./Event_09.png";
+export { default as Headline } from "./Headline.png";
+export { default as Events } from "./Events.png";

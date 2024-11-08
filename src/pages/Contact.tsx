@@ -10,7 +10,7 @@ import {
 import { FaSmile } from "react-icons/fa";
 import { Carrousel } from "../components/Carrousel";
 import { SoundWave } from "../components/SoundWave";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Footer } from "../components/Footer";
 
@@ -36,6 +36,10 @@ const animateText = (text: string) =>
   ));
 
 const Contact = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const [isPaused, setIsPaused] = useState(true);
 
   const formik = useFormik({

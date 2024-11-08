@@ -10,7 +10,7 @@ export function Footer() {
           width: "100%",
           display: "flex",
           flexDirection: "column",
-          marginTop: "3vw",
+          marginTop: "calc(3vw + 20px)",
           height: "100%",
           justifyContent: "space-between",
         }}

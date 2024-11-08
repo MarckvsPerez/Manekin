@@ -1,12 +1,7 @@
-import {
-  djs,
-  event1,
-  merch,
-  pastEvents,
-  upcomingEvents,
-} from "../assets/image";
-import Video from "../assets/videos/21-12-2024.mp4";
-import VideoEvents from "../assets/videos/events.mp4";
+import { Headline, Events, event9 } from "../assets/image";
+import HeadlineVideo from "../assets/videos/Headline.mp4";
+import EventsVideo from "../assets/videos/Events.mp4";
+import NewEventsVideo from "../assets/videos/event_09.mp4";
 
 import { motion } from "framer-motion";
 import { useRef, useState } from "react";
@@ -93,11 +88,13 @@ export const RightContent = () => {
       <StyledContentRightContainer>
         <div style={{ position: "relative" }}>
           <img
-            src={upcomingEvents}
+            src={event9}
             alt="Manikin"
             style={{
               width: "100%",
               cursor: "pointer",
+              aspectRatio: "1/1",
+              objectFit: "cover",
             }}
             onMouseEnter={() => {
               handleMouseEnter(setHoveredUpcoming);
@@ -122,7 +119,7 @@ export const RightContent = () => {
               transition={{ duration: 0.5 }}
             >
               <ReactPlayer
-                url={Video}
+                url={NewEventsVideo}
                 playing
                 controls={false}
                 width="100%"
@@ -150,7 +147,7 @@ export const RightContent = () => {
 
         <div style={{ position: "relative" }}>
           <img
-            src={pastEvents}
+            src={Events}
             alt="Manikin"
             style={{ width: "100%", cursor: "pointer" }}
             onMouseEnter={() => handleMouseEnter(setHoveredPast)}
@@ -172,7 +169,7 @@ export const RightContent = () => {
               transition={{ duration: 0.5 }}
             >
               <ReactPlayer
-                url={VideoEvents}
+                url={EventsVideo}
                 playing
                 controls={false}
                 width="100%"
@@ -197,71 +194,59 @@ export const RightContent = () => {
 
         <div style={{ position: "relative" }}>
           <img
-            src={djs}
-            alt="DJS RESIDENTES"
-            style={{ width: "100%", cursor: "pointer" }}
-            onMouseEnter={() => handleMouseEnter(setHoveredDjs)}
-            onMouseLeave={() => handleMouseLeave(setHoveredDjs)}
+            src={Headline}
+            alt="Manikin"
+            style={{
+              width: "100%",
+              cursor: "pointer",
+              aspectRatio: "1/1",
+              objectFit: "cover",
+            }}
+            onMouseEnter={() => {
+              handleMouseEnter(setHoveredDjs);
+            }}
+            onMouseLeave={() => {
+              handleMouseLeave(setHoveredDjs);
+            }}
           />
           {hoveredDjs && (
-            <motion.img
-              src={event1}
-              alt="Manikin"
+            <motion.div
               style={{
-                width: "50%",
                 position: "absolute",
                 top: "50%",
                 left: "50%",
                 transform: "translate(-50%, -50%)",
-                aspectRatio: "1/1",
-                objectFit: "cover",
-                cursor: "pointer",
+                width: "60%",
+                height: "60%",
+                overflow: "hidden",
               }}
-              onMouseEnter={() => handleMouseEnter(setHoveredDjs)}
-              onMouseLeave={() => handleMouseLeave(setHoveredDjs)}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
-            />
+            >
+              <ReactPlayer
+                url={HeadlineVideo}
+                playing
+                controls={false}
+                width="100%"
+                height="100%"
+                loop={true}
+                style={{
+                  position: "absolute",
+                  top: "50%",
+                  left: "50%",
+                  transform: "translate(-50%, -50%) scale(1.78)",
+                  cursor: "pointer",
+                }}
+                onMouseEnter={() => handleMouseEnter(setHoveredDjs)}
+                onMouseLeave={() => handleMouseLeave(setHoveredDjs)}
+              />
+            </motion.div>
           )}
-          <h3 ref={refDjs}>{animateText("DJS RESIDENTES", isInViewDjs)}</h3>
-          <p>21 DE DICIEMBRE DE 2024</p>
-          <Divider />
         </div>
-
-        <div style={{ position: "relative" }}>
-          <img
-            src={merch}
-            alt="MERCHANDISING"
-            style={{ width: "100%", cursor: "pointer" }}
-            onMouseEnter={() => handleMouseEnter(setHoveredMerch)}
-            onMouseLeave={() => handleMouseLeave(setHoveredMerch)}
-          />
-          {hoveredMerch && (
-            <motion.img
-              src={merch}
-              alt="Manikin"
-              style={{
-                width: "50%",
-                position: "absolute",
-                top: "50%",
-                left: "50%",
-                transform: "translate(-50%, -50%)",
-                aspectRatio: "1/1",
-                objectFit: "cover",
-                cursor: "pointer",
-              }}
-              onMouseEnter={() => handleMouseEnter(setHoveredMerch)}
-              onMouseLeave={() => handleMouseLeave(setHoveredMerch)}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
-            />
-          )}
-          <h3 ref={refMerch}>{animateText("MERCHANDISING", isInViewMerch)}</h3>
-          <p>21 DE DICIEMBRE DE 2024</p>
-          <Divider />
-        </div>
+        <h3 ref={refDjs}>{animateText("DJS RESIDENTES", isInViewDjs)}</h3>
+        <p>21 DE DICIEMBRE DE 2024</p>
+        <Divider />
       </StyledContentRightContainer>
     </StyledContentRight>
   );

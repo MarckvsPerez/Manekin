@@ -72,8 +72,8 @@ export const StyledContentRight = styled.div`
 
 export const StyledContentRightContainer = styled.div`
   background-color: #101010;
-  width: 50%;
-  margin-left: 50%;
+  width: 46%;
+  margin-left: 54%;
 `;
 
 export const EmptySpace = styled.div`

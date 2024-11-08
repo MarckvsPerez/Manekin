@@ -1,5 +1,5 @@
 import { transition } from "../components/Transitions";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Footer } from "../components/Footer";
 import { events } from "../constants/Events";
 import {
@@ -14,16 +14,21 @@ import {
   Divider,
 } from "../components/styles/Events.styled";
 import Animations from "../components/Animations";
+import { motion } from "framer-motion";
+import ReactPlayer from "react-player";
 
 const HorizontalScroll = () => {
   const scrollContainerRef = useRef<HTMLDivElement | null>(null);
+  const [hoveredEvent, setHoveredEvent] = useState<number | null>(null);
 
-  const handleMouseEnter = () => {
+  const handleMouseEnter = (id: number) => {
     document.querySelector(".custom-cursor")?.classList.add("hover");
+    setHoveredEvent(id);
   };
 
   const handleMouseLeave = () => {
     document.querySelector(".custom-cursor")?.classList.remove("hover");
+    setHoveredEvent(null);
   };
 
   useEffect(() => {
@@ -60,18 +65,54 @@ const HorizontalScroll = () => {
       >
         {events.map((event, index) => (
           <EventItem key={event.id}>
-            <Animations delay={index * 0.05} />
+            <Animations delay={index * 0.1} />
             <EventDetails>
-              <EventImage
-                src={event.image}
-                alt="event_1"
-                onMouseEnter={() => {
-                  handleMouseEnter();
-                }}
-                onMouseLeave={() => {
-                  handleMouseLeave();
-                }}
-              />
+              <div style={{ position: "relative", height: "85%" }}>
+                <EventImage
+                  src={event.image}
+                  alt="event_1"
+                  onMouseEnter={() => {
+                    handleMouseEnter(event.id);
+                  }}
+                  onMouseLeave={() => {
+                    handleMouseLeave();
+                  }}
+                />
+                {event.id === hoveredEvent && (
+                  <motion.div
+                    style={{
+                      position: "absolute",
+                      top: "50%",
+                      left: "50%",
+                      transform: "translate(-50%, -50%)",
+                      width: "60%",
+                      height: "60%",
+                      overflow: "hidden",
+                    }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <ReactPlayer
+                      url={event.video}
+                      playing
+                      controls={false}
+                      width="100%"
+                      height="100%"
+                      loop={true}
+                      style={{
+                        position: "absolute",
+                        top: "50%",
+                        left: "50%",
+                        transform: "translate(-50%, -50%) scale(1.78)",
+                        cursor: "pointer",
+                      }}
+                      onMouseEnter={() => handleMouseEnter(event.id)}
+                      onMouseLeave={() => handleMouseLeave()}
+                    />
+                  </motion.div>
+                )}
+              </div>
               <div>
                 <h1
                   style={{
@@ -115,6 +156,10 @@ const HorizontalScroll = () => {
 };
 
 const EventsComponent = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <HorizontalScroll />
