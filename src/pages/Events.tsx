@@ -13,6 +13,7 @@ import {
   Container,
   Divider,
 } from "../components/styles/Events.styled";
+import Animations from "../components/Animations";
 
 const HorizontalScroll = () => {
   const scrollContainerRef = useRef<HTMLDivElement | null>(null);
@@ -51,9 +52,15 @@ const HorizontalScroll = () => {
 
   return (
     <Container>
-      <ScrollContainer ref={scrollContainerRef}>
-        {events.map((event) => (
+      <ScrollContainer
+        ref={scrollContainerRef}
+        initial={{ y: 100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.5, ease: "easeInOut" }}
+      >
+        {events.map((event, index) => (
           <EventItem key={event.id}>
+            <Animations delay={index * 0.05} />
             <EventDetails>
               <EventImage
                 src={event.image}
@@ -97,7 +104,9 @@ const HorizontalScroll = () => {
           </EventItem>
         ))}
       </ScrollContainer>
+
       <FooterContainer>
+        <Animations delay={0.1} />
         <FooterText>VIVE LA LOCURA</FooterText>
         <FooterText>EVENTOS (8)</FooterText>
       </FooterContainer>

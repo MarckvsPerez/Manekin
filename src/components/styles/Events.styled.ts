@@ -1,4 +1,5 @@
 import { styled } from "styled-components";
+import { motion } from "framer-motion";
 
 export const Container = styled.div`
   display: flex;
@@ -7,7 +8,7 @@ export const Container = styled.div`
   overflow: hidden;
 `;
 
-export const ScrollContainer = styled.div`
+export const ScrollContainer = styled(motion.div)`
   display: flex;
   overflow-x: auto;
   width: 100%;
@@ -20,6 +21,7 @@ export const ScrollContainer = styled.div`
 
 export const EventItem = styled.div`
   display: flex;
+  position: relative;
 `;
 
 export const EventDetails = styled.div`
@@ -56,6 +58,8 @@ export const FooterContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  position: relative;
+  overflow: hidden;
 `;
 
 export const FooterText = styled.p`
