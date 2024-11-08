@@ -35,17 +35,14 @@ export const RightContent = () => {
   const refUpcoming = useRef(null);
   const refPast = useRef(null);
   const refDjs = useRef(null);
-  const refMerch = useRef(null);
 
   const [hoveredUpcoming, setHoveredUpcoming] = useState(false);
   const [hoveredPast, setHoveredPast] = useState(false);
   const [hoveredDjs, setHoveredDjs] = useState(false);
-  const [hoveredMerch, setHoveredMerch] = useState(false);
 
   const isInViewUpcoming = useInView(refUpcoming, { once: true });
   const isInViewPast = useInView(refPast, { once: true });
   const isInViewDjs = useInView(refDjs, { once: true });
-  const isInViewMerch = useInView(refMerch, { once: true });
 
   const handleMouseEnter = (
     setHovered: React.Dispatch<React.SetStateAction<boolean>>
