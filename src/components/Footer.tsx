@@ -1,6 +1,7 @@
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { MainFooter, StyledFooter, SubFooter } from "./styles/Footer.styled";
 import { StyledHeader } from "./styles/Home.styled";
+import { useRef } from "react";
 export function Footer() {
   return (
     <StyledFooter>
@@ -61,15 +62,18 @@ export function Footer() {
 }
 
 export const FooterHeader = () => {
-  const text = "MANIKIN EVENTS";
+  const ref = useRef(null);
 
+  const isInView = useInView(ref, { once: true });
+
+  const text = "MANIKIN EVENTS";
   return (
-    <StyledHeader>
+    <StyledHeader ref={ref}>
       {text.split("").map((char, index) => (
         <motion.span
           key={index}
           initial={{ scaleY: 0 }}
-          animate={{ scaleY: 1 }}
+          animate={{ scaleY: isInView ? 1 : 0 }}
           transition={{
             duration: 1,
             delay: index * 0.05,
