@@ -35,16 +35,16 @@ export const Navbar = () => {
             style={{ display: "flex", gap: "2vw", textWrap: "nowrap" }}
           >
             <div>
+              <NavLink to="/events" isActive={location.pathname === "/events"}>
+                Eventos
+              </NavLink>
+            </div>
+            <div>
               <NavLink
                 to="/contact"
                 isActive={location.pathname === "/contact"}
               >
                 Contacto
-              </NavLink>
-            </div>
-            <div>
-              <NavLink to="/events" isActive={location.pathname === "/events"}>
-                Eventos
               </NavLink>
             </div>
             <div>
