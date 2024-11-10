@@ -30,7 +30,7 @@ a {
   height: 100vh;
   background: #414141;
   transform-origin: bottom;
-  z-index: 0;
+  z-index: 1;
 }
 .slide-out {
   position: fixed;
@@ -40,7 +40,7 @@ a {
   height: 100vh;
   background: #414141;
   transform-origin: top;
-  z-index: 0;
+  z-index: 1;
 }
 
 .logo-container {
