@@ -16,22 +16,31 @@ export const AboutUs = () => {
         animate={{ y: 0 }}
         transition={{ duration: 1, ease: "easeInOut" }}
       >
-        {primaryText.split("").map((char, index) => (
-          <StyledHeaderVariant>
-            <Animations delay={0.1 * index} />
-            <span key={index}>{char}</span>
-          </StyledHeaderVariant>
-        ))}
+        {primaryText.split(/(?!^)/).map((char, index) => {
+          if (char === " ") {
+            return (
+              <StyledHeaderVariant key={index}>
+                <span key={index}>&nbsp;</span>
+              </StyledHeaderVariant>
+            );
+          }
+          return (
+            <StyledHeaderVariant key={index}>
+              <Animations delay={0.1 * index} />
+              <span>{char}</span>
+            </StyledHeaderVariant>
+          );
+        })}
       </ContainerHeaderVariant>
       <ContainerHeaderVariant
         initial={{ y: 100 }}
         animate={{ y: 0 }}
         transition={{ duration: 1, ease: "easeInOut" }}
       >
-        {secondaryText.split("").map((char, index) => (
-          <StyledHeaderVariant>
+        {secondaryText.split(/(?!^)/).map((char, index) => (
+          <StyledHeaderVariant key={index}>
             <Animations delay={0.1 * index} />
-            <span key={index}>{char}</span>
+            <span>{char}</span>
           </StyledHeaderVariant>
         ))}
       </ContainerHeaderVariant>
