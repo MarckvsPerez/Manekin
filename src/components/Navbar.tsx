@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import LocalTime from "./LocalTime";
 import { Clock, Logo, MainNav, Nav, NavLink } from "./styles/Navbar.styled";
-import LogoPng from "../assets/Logo.png";
+import LogoPng from "../assets/LOGO_MANIKIN.svg";
 
 export const Navbar = () => {
   const location = useLocation();

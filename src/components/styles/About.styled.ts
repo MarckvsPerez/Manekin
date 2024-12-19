@@ -2,9 +2,9 @@ import { motion } from "framer-motion";
 import { styled } from "styled-components";
 
 export const ContainerAboutUs = styled.div`
-  height: 100%;
   display: flex;
   flex-direction: column;
+  overflow: scroll;
 `;
 
 export const ContainerHeaderVariant = styled(motion.div)`
@@ -18,3 +18,18 @@ export const StyledHeaderVariant = styled.div`
   line-height: 0.75;
   position: relative;
 `;
+
+export const AboutGrid = styled.div`
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  overflow: hidden;
+  gap: 20px;
+`;
+
+export const StyledSpan = styled.span`
+  font-size: 1.5rem;
+  font-weight: 1000;
+  display: block;
+`;
+
