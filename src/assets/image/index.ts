@@ -11,3 +11,4 @@ export { default as Headline } from "./Headline.png";
 export { default as Events } from "./Events.png";
 export { default as AboutUs1 } from "./About_01.png";
 export { default as AboutUs2 } from "./About_02.png";
+export { default as AboutUs3 } from "./About_03.png";

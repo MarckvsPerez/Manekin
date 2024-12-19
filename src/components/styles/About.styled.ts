@@ -22,14 +22,23 @@ export const StyledHeaderVariant = styled.div`
 export const AboutGrid = styled.div`
   margin-top: 50px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  overflow: hidden;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
+  overflow: hidden;
 `;
 
 export const StyledSpan = styled.span`
   font-size: 1.5rem;
   font-weight: 1000;
   display: block;
+  text-transform: uppercase;
+
 `;
 
+export const StyledSubtitle = styled.span`
+  font-size: 1rem;
+  font-weight: 500;
+  display: block;
+  color: #888;
+  text-transform: uppercase;
+`;
